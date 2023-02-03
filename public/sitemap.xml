@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://chainstate.co.ke/</loc>
+    <lastmod>2022-03-19T10:39:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/</loc>
+    <lastmod>2022-03-19T10:39:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/2022-03-19-the-plutus-platform/</loc>
+    <lastmod>2022-03-19T10:39:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/</loc>
+    <lastmod>2022-02-12T09:45:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/2022-01-30-smart-contracts-and-plutus/</loc>
+    <lastmod>2022-01-30T11:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/2022-01-22-scalability-in-cardano/</loc>
+    <lastmod>2022-01-22T16:18:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/2022-01-15-eutxo-transactions/</loc>
+    <lastmod>2022-01-15T22:48:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/posts/2022-01-09-pos-and-ouroboros/</loc>
+    <lastmod>2022-01-08T06:45:00+00:00</lastmod>
+  </url><url>
+    <loc>http://chainstate.co.ke/categories/</loc>
+  </url><url>
+    <loc>http://chainstate.co.ke/tags/</loc>
+  </url>
+</urlset>
