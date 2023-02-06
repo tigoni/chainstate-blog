@@ -2,11 +2,11 @@
 
 title: "Setting Up for Plutus Development from Scratch"
 date: 2023-02-03 12:45:00 -0000
-draft: true
+draft: false
 
 ---
 
-##Introduction
+## Introduction
 Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
 
 At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.

@@ -6,7 +6,17 @@
     <description>Recent content on ChainState</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Mar 2022 10:39:00 +0000</lastBuildDate><atom:link href="https://chainstate.co.ke/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Feb 2023 12:45:00 +0000</lastBuildDate><atom:link href="https://chainstate.co.ke/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up for Plutus Development from Scratch</title>
+      <link>https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/</link>
+      <pubDate>Fri, 03 Feb 2023 12:45:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/</guid>
+      <description>##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
+At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.</description>
+    </item>
+    
     <item>
       <title>The Plutus Platform</title>
       <link>https://chainstate.co.ke/posts/2022-03-19-the-plutus-platform/</link>

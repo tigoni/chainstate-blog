@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Setting Up for Plutus Development from Scratch | ChainState</title>
+<meta name="keywords" content="">
+<meta name="description" content="##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
+At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.">
+<meta name="author" content="">
+<link rel="canonical" href="https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://chainstate.co.ke/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://chainstate.co.ke/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://chainstate.co.ke/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://chainstate.co.ke/apple-touch-icon.png">
+<link rel="mask-icon" href="https://chainstate.co.ke/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Setting Up for Plutus Development from Scratch" />
+<meta property="og:description" content="##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
+At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-03T12:45:00+00:00" />
+<meta property="article:modified_time" content="2023-02-03T12:45:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setting Up for Plutus Development from Scratch"/>
+<meta name="twitter:description" content="##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
+At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://chainstate.co.ke/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Setting Up for Plutus Development from Scratch",
+      "item": "https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Setting Up for Plutus Development from Scratch",
+  "name": "Setting Up for Plutus Development from Scratch",
+  "description": "##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.\nAt the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.",
+  "keywords": [
+    
+  ],
+  "articleBody": "##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.\nAt the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell. The aim of this guide is to show you how to setup the entire environment from scratch such that you understand how all the pieces are tied together. In the end you will have a ready environment for contract development.\nTo get started developing Plutus smart contracts, you need to setup your environment first and the most important thing to understand is that Plutus development is based on Haskell and therefore the platform itself is made available as a set of Haskell libraries.\nHaskell Compiler, Nix and Cabal The tools we want to setup first are Nix, GHC and Cabal. Nix is a tool which allows us to build and manage software packages in a reproducible way in diffrent environments. It also comes with a programming language to use for building packages. I tend to think of it like Docker but much better and reproducability. We need to set it up so that its much easier managing versions of the Plutus packages. You can find instructions on how to set it up here.\nNext, we need to install GHC, a Haskell compiler and Cabal which is a tool used for managing Haskell libraries/packages. Think of it loosely like npm or Maven for Java development. According to IOG, the currently recommended GHC version is 8.10.7 and Cabal should be at least 3.8. While you could install these tools individually, a better way is to use GHCUp which will allow you to set up both from one place. Also note you could use stack which is a new Haskell build tool intended to replace Cabal. Installation instructions for GHCUp. Once you have installed it you can run the command ghcup tui on your terminal to get a simple interface that will enable you install the right versions of GHC and Cabal\nThe Plutus Application Framework This provides the basic set of libraries needed for Plutus development. It is a set of libraries your project will be complied and built on and is available on the IOHK repository as plutus-apps. The best way to set this up is using the nix method explained as earlier as this allows you to switch to different versions of the platform libraries easily. Before you proceed make sure Nix is installed on your machine.\nIn general to set up plutus-apps, you will:\n Clone the IOHK plutus-apps repository to a local directory on your machine. From the local repo, check-out a recent tagged release. At the time of writting this is release v1.1.0. While still in that directory, use the command nix-shell to enter into the nix-environment. This command will start fetching and building all the required Plutus packages. Note that for the first time, this may take quite some time to build everything up. Just make sure you set up the IOHK binary cache to avoid compiling a huge number of the packages and tools.  The Plutus Project When the nix-shell command completes building the Plutus packages you should get a nix shell where all those packages are available as dependencies for your Plutus project. Keep this shell open, we shall come back to it in a few.\nNow we need to create an empty haskell project in a local directory. This will be the project that will house all your smart contracts. To create the project, do cabal init from the terminal. This will prompt for some preferences and you can use the defaults for all the questions. Once the project is ready, we need to add a cabal.project file which will allow us to list packages we need in our project but are not on Hackage (Haskell’s package repo. Similar to npm repo for Javascript). So go ahead and create a new file and name it cabal.project. Inside the file, put in the contents below:\n-- Custom repository for cardano haskell packages -- See https://github.com/input-output-hk/cardano-haskell-packages on how to use CHaP in a Haskell project. repository cardano-haskell-packages url: https://input-output-hk.github.io/cardano-haskell-packages secure: True root-keys: 3e0cce471cf09815f930210f7827266fd09045445d65923e6d0238a6cd15126f 443abb7fb497a134c343faf52f0b659bd7999bc06b7f63fa76dc99d631f9bea1 a86a1f6ce86c449c46666bda44268677abf29b5b2d2eb5ec7af903ec2f117a82 bcec67e8e99cabfa7764d75ad9b158d72bfacf70ca1d0ec8bc6b4406d1bf8413 c00aae8461a256275598500ea0e187588c35a5d5d7454fb57eac18d9edb86a56 d4a35cd3121aa00d18544bb0ac01c3e1691d618f462c46129271bccf39f7e8ee -- See CONTRIBUTING.adoc for how to update index-state index-state: 2023-01-26T17:52:04Z -- See CONTRIBUTING.adoc for how to update index-state index-state: , hackage.haskell.org 2023-02-05T14:22:36Z , cardano-haskell-packages 2023-01-26T17:52:04Z packages: ./ -- We never, ever, want this. write-ghc-environment-files: never -- Always build tests and benchmarks. tests: true benchmarks: true -- The only sensible test display option, since it allows us to have colourized -- 'tasty' output. test-show-details: direct allow-newer: -- cardano-ledger packages need aeson 2, the following packages have a -- too restictive upper bounds on aeson, so we relax them here. The hackage -- trustees can make a revision to these packages cabal file to solve the -- issue permanently. , ekg:aeson , ekg-json:aeson , openapi3:aeson , servant:aeson , servant-client-core:aeson , servant-server:aeson constraints: -- cardano-prelude-0.1.0.0 needs , protolude 2.0.0.0 , algebraic-graphs =0.3.0.0 which is incompatible with dbvar's constraint above , typed-protocols==0.1.0.0 , aeson = 2 , hedgehog = 1.1 -- The plugin will typically fail when producing Haddock documentation. However, -- in this instance you can simply tell it to defer any errors to runtime (which -- will never happen since you're building documentation). -- -- So, any package using 'PlutusTx.compile' in the code for which you need to -- generate haddock documentation should use the following 'haddock-options'. package plutus-ledger haddock-options: \"--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors\" package plutus-script-utils haddock-options: \"--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors\" package plutus-contract haddock-options: \"--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors\" -- These packages appear in our dependency tree and are very slow to build. -- Empirically, turning off optimization shaves off ~50% build time. -- It also mildly improves recompilation avoidance. -- For dev work we don't care about performance so much, so this is okay. package cardano-ledger-alonzo optimization: False package ouroboros-consensus-shelley optimization: False package ouroboros-consensus-cardano optimization: False package cardano-api optimization: False package cardano-wallet optimization: False package cardano-wallet-core optimization: False package cardano-wallet-cli optimization: False package cardano-wallet-launcher optimization: False package cardano-wallet-core-integration optimization: False -- Waiting for plutus-apps CHaP to be published source-repository-package type: git location: https://github.com/input-output-hk/plutus-apps.git tag: v1.0.0 subdir: cardano-streaming doc freer-extras marconi marconi-mamba playground-common pab-blockfrost plutus-chain-index plutus-chain-index-core plutus-contract plutus-contract-certification plutus-example plutus-ledger plutus-ledger-constraints plutus-pab plutus-pab-executables plutus-script-utils plutus-tx-constraints plutus-use-cases rewindable-index -- Direct dependency. -- Compared to others, cardano-wallet doesn't bump dependencies very often. -- Making it a good place to start when bumping dependencies. -- As, for example, bumping the node first highly risks breaking API with the wallet. -- Unless early bug fixes are required, this is fine as the wallet tracks stable releases of the node. -- And it is indeed nice for plutus-apps to track stable releases of the node too. -- -- The current version is dated 2022/08/10 source-repository-package type: git location: https://github.com/input-output-hk/cardano-wallet tag: 18a931648550246695c790578d4a55ee2f10463e subdir: lib/cli lib/core lib/core-integration lib/dbvar lib/launcher lib/numeric lib/shelley lib/strict-non-empty-containers lib/test-utils lib/text-class -- Should follow cardano-wallet. source-repository-package type: git location: https://github.com/input-output-hk/cardano-addresses tag: b7273a5d3c21f1a003595ebf1e1f79c28cd72513 subdir: -- cardano-addresses-cli command-line -- cardano-addresses core -- This is needed because we rely on an unreleased feature -- https://github.com/input-output-hk/cardano-ledger/pull/3111 source-repository-package type: git location: https://github.com/input-output-hk/cardano-ledger tag: da3e9ae10cf9ef0b805a046c84745f06643583c2 subdir: eras/alonzo/impl eras/alonzo/test-suite eras/babbage/impl eras/babbage/test-suite eras/byron/chain/executable-spec eras/byron/crypto eras/byron/crypto/test eras/byron/ledger/executable-spec eras/byron/ledger/impl eras/byron/ledger/impl/test eras/shelley/impl eras/shelley/test-suite eras/shelley-ma/impl eras/shelley-ma/test-suite libs/cardano-ledger-core libs/cardano-ledger-pretty libs/cardano-protocol-tpraos libs/cardano-data libs/vector-map libs/set-algebra libs/small-steps libs/small-steps-test libs/non-integral This file generally instructs Cabal to include the listed packages as dependencies when it builds you project.\nWe are almost done. Now, do cabal update to fetch these dependencies into the project. Finally, do cabal build. This should build your project although there is no code that uses the packages for now.\nWhen you get a successful build, you are ready to start writting Plutus code for your smart contracts. Here is a minimal Plutus contract to test if everything is set up correctly. Create a file called TestPlutus.hs in the src directory of your project and paste in the contents below:\n{-# LANGUAGE BangPatterns #-} {-# LANGUAGE CPP #-} {-# LANGUAGE DataKinds #-} {-# LANGUAGE LambdaCase #-} {-# LANGUAGE NamedFieldPuns #-} {-# LANGUAGE RankNTypes #-} {-# LANGUAGE RecordWildCards #-} {-# LANGUAGE ScopedTypeVariables #-} {-# LANGUAGE TemplateHaskell #-} {-# LANGUAGE TypeApplications #-} {-# LANGUAGE TypeFamilies #-} {-# LANGUAGE NoImplicitPrelude #-} {-# LANGUAGE ImportQualifiedPost #-} module TestContract (validator, wrapped, serialized, hash, HelloDatum (..), HelloRedeemer (..)) where import Cardano.Api.Shelley (PlutusScript (..)) import Codec.Serialise (serialise) import qualified Data.ByteString.Lazy as BSL import qualified Data.ByteString.Short as BSS import Plutus.V2.Ledger.Api qualified as PlutusV2 import Ledger.Typed.Scripts as Scripts import PlutusTx import PlutusTx.Prelude import Cardano.Api newtype HelloDatum = HelloDatum Integer PlutusTx.unstableMakeIsData ''HelloDatum newtype HelloRedeemer = HelloRedeemer Integer PlutusTx.unstableMakeIsData ''HelloRedeemer -- This validator always validates true {-# INLINABLE run #-} run :: HelloDatum - HelloRedeemer - PlutusV2.ScriptContext - Bool run _ _ _ = True -- Entry wrapped :: BuiltinData - BuiltinData - BuiltinData - () wrapped = Scripts.mkUntypedValidator run validator :: PlutusV2.Validator validator = PlutusV2.mkValidatorScript $$(PlutusTx.compile [|| wrapped ||]) serialized :: PlutusScript PlutusScriptV2 serialized = PlutusScriptSerialised . BSS.toShort . BSL.toStrict . serialise $ validator hash :: Scripts.ValidatorHash hash = validatorHash validator Finally, update the .cabal file in the project to add this file under the exposed-modules section:\nlibrary import: warnings exposed-modules: MyLib , TestContract Then update the build-depends section to add all the packages used in TestContract.hs\n build-depends: base ^=4.14.3.0 , bytestring , cardano-api , filepath , plutus-core , plutus-ledger , plutus-ledger-api , plutus-tx , plutus-tx-plugin , serialise , aeson Do cabal build and if it compiles, you have successfully setup the environment to get started with Plutus.\nYou can get the full test project repo here\n",
+  "wordCount" : "1650",
+  "inLanguage": "en",
+  "datePublished": "2023-02-03T12:45:00Z",
+  "dateModified": "2023-02-03T12:45:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ChainState",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chainstate.co.ke/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://chainstate.co.ke" accesskey="h" title="ChainState (Alt + H)">ChainState</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Setting Up for Plutus Development from Scratch
+    </h1>
+    <div class="post-meta"><span title='2023-02-03 12:45:00 +0000 +0000'>February 3, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>##Introduction
+Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.</p>
+<p>At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.
+The aim of this guide is to show you how to setup the entire environment from scratch such that you understand how all the pieces are tied together. In the end you will have a ready environment for contract development.</p>
+<p>To get started developing Plutus smart contracts, you need to setup your environment first and the most important thing to understand is that Plutus development
+is based on Haskell and therefore the platform itself is made available as a set of Haskell libraries.</p>
+<h4 id="haskell-compiler-nix-and-cabal">Haskell Compiler, Nix and Cabal<a hidden class="anchor" aria-hidden="true" href="#haskell-compiler-nix-and-cabal">#</a></h4>
+<p>The tools we want to setup first are Nix, GHC and Cabal.
+Nix is a tool which allows us to build and manage software packages in a reproducible way in diffrent environments. It also comes with a programming language to use for building packages. I tend to think of it like Docker but much better and reproducability. We need to set it up so that its much easier managing versions of the Plutus packages. You can find instructions on how to set it up <a href="https://nixos.org/download.html">here</a>.</p>
+<p>Next, we need to install GHC, a Haskell compiler and Cabal which is a tool used for managing Haskell libraries/packages. Think of it loosely like npm or Maven for Java development. According to IOG, the currently recommended GHC version is 8.10.7 and Cabal should be at least 3.8. While you could install these tools individually, a better way is to use GHCUp which will allow you to set up both from one place. Also note you could use stack which is a new Haskell build tool intended to replace Cabal. <a href="https://www.haskell.org/ghcup/install/">Installation instructions for GHCUp</a>. Once you have installed it you can run the command <code>ghcup tui</code> on your terminal to get a simple interface that will enable you install the right versions of GHC and Cabal</p>
+<h4 id="the-plutus-application-framework">The Plutus Application Framework<a hidden class="anchor" aria-hidden="true" href="#the-plutus-application-framework">#</a></h4>
+<p>This provides the basic set of libraries needed for Plutus development. It is a set of libraries your project will be complied and built on and is available on the IOHK repository as <code>plutus-apps</code>. The best way to set this up is using the nix method explained as earlier as this allows you to switch to different versions of the platform libraries easily. Before you proceed make sure Nix is installed on your machine.</p>
+<p>In general to set up plutus-apps, you will:</p>
+<ul>
+<li>Clone the IOHK  <a href="https://github.com/input-output-hk/plutus-apps">plutus-apps</a> repository to a local directory on your machine.</li>
+<li>From the local repo, check-out a recent tagged release. At the time of writting this is release v1.1.0.</li>
+<li>While still in that directory, use the command <code>nix-shell</code> to enter into the nix-environment. This command will start fetching and building all the required Plutus packages. Note that for the first time, this may take quite some time to build everything up. Just make sure you set up the IOHK binary cache to avoid compiling a huge number of the packages and tools.</li>
+</ul>
+<h4 id="the-plutus-project">The Plutus Project<a hidden class="anchor" aria-hidden="true" href="#the-plutus-project">#</a></h4>
+<p>When the <code>nix-shell</code> command completes building the Plutus packages you should get a nix shell where all those packages are available as dependencies for your Plutus project. Keep this shell open, we shall come back to it in a few.</p>
+<p>Now we need to create an empty haskell project in a local directory. This will be the project that will house all your smart contracts. To create the project, do <code>cabal init</code> from the terminal. This will prompt for some preferences and you can use the defaults for all the questions.
+Once the project is ready, we need to add a <code>cabal.project</code> file which will allow us to list packages we need in our project but are not on Hackage (Haskell&rsquo;s package repo. Similar to npm repo for Javascript). So go ahead and create a new file and name it cabal.project. Inside the file, put in the contents below:</p>
+<pre tabindex="0"><code>-- Custom repository for cardano haskell packages
+-- See https://github.com/input-output-hk/cardano-haskell-packages on how to use CHaP in a Haskell project.
+repository cardano-haskell-packages
+  url: https://input-output-hk.github.io/cardano-haskell-packages
+  secure: True
+  root-keys:
+    3e0cce471cf09815f930210f7827266fd09045445d65923e6d0238a6cd15126f
+    443abb7fb497a134c343faf52f0b659bd7999bc06b7f63fa76dc99d631f9bea1
+    a86a1f6ce86c449c46666bda44268677abf29b5b2d2eb5ec7af903ec2f117a82
+    bcec67e8e99cabfa7764d75ad9b158d72bfacf70ca1d0ec8bc6b4406d1bf8413
+    c00aae8461a256275598500ea0e187588c35a5d5d7454fb57eac18d9edb86a56
+    d4a35cd3121aa00d18544bb0ac01c3e1691d618f462c46129271bccf39f7e8ee
+
+
+
+-- See CONTRIBUTING.adoc for how to update index-state
+index-state: 2023-01-26T17:52:04Z
+
+-- See CONTRIBUTING.adoc for how to update index-state
+index-state:
+  , hackage.haskell.org 2023-02-05T14:22:36Z
+  , cardano-haskell-packages 2023-01-26T17:52:04Z
+
+packages:
+  ./
+
+-- We never, ever, want this.
+write-ghc-environment-files: never
+
+-- Always build tests and benchmarks.
+tests: true
+benchmarks: true
+
+-- The only sensible test display option, since it allows us to have colourized
+-- &#39;tasty&#39; output.
+test-show-details: direct
+
+allow-newer:
+  -- cardano-ledger packages need aeson &gt;2, the following packages have a
+  -- too restictive upper bounds on aeson, so we relax them here. The hackage
+  -- trustees can make a revision to these packages cabal file to solve the
+  -- issue permanently.
+  , ekg:aeson
+  , ekg-json:aeson
+  , openapi3:aeson
+  , servant:aeson
+  , servant-client-core:aeson
+  , servant-server:aeson
+
+constraints:
+  -- cardano-prelude-0.1.0.0 needs
+  , protolude &lt;0.3.1
+
+  -- cardano-ledger-byron-0.1.0.0 needs
+  , cardano-binary &lt;1.5.0.1
+
+  -- plutus-core-1.0.0.1 needs
+  , cardano-crypto-class &gt;2.0.0.0
+  , algebraic-graphs &lt;0.7
+
+  -- cardano-ledger-core-0.1.0.0 needs
+  , cardano-crypto-class &lt;2.0.0.1
+
+  -- cardano-crypto-class-2.0.0.0.1 needs
+  , cardano-prelude &lt;0.1.0.1
+
+  -- dbvar from cardano-wallet needs
+  , io-classes &lt;0.3.0.0
+
+  -- newer typed-protocols need io-classes&gt;=0.3.0.0 which is incompatible with dbvar&#39;s constraint above
+  , typed-protocols==0.1.0.0
+
+  , aeson &gt;= 2
+
+  , hedgehog &gt;= 1.1
+
+-- The plugin will typically fail when producing Haddock documentation. However,
+-- in this instance you can simply tell it to defer any errors to runtime (which
+-- will never happen since you&#39;re building documentation).
+--
+-- So, any package using &#39;PlutusTx.compile&#39; in the code for which you need to
+-- generate haddock documentation should use the following &#39;haddock-options&#39;.
+package plutus-ledger
+  haddock-options: &#34;--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors&#34;
+package plutus-script-utils
+  haddock-options: &#34;--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors&#34;
+package plutus-contract
+  haddock-options: &#34;--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors&#34;
+
+-- These packages appear in our dependency tree and are very slow to build.
+-- Empirically, turning off optimization shaves off ~50% build time.
+-- It also mildly improves recompilation avoidance.
+-- For dev work we don&#39;t care about performance so much, so this is okay.
+package cardano-ledger-alonzo
+  optimization: False
+package ouroboros-consensus-shelley
+  optimization: False
+package ouroboros-consensus-cardano
+  optimization: False
+package cardano-api
+  optimization: False
+package cardano-wallet
+  optimization: False
+package cardano-wallet-core
+  optimization: False
+package cardano-wallet-cli
+  optimization: False
+package cardano-wallet-launcher
+  optimization: False
+package cardano-wallet-core-integration
+  optimization: False
+
+
+-- Waiting for plutus-apps CHaP to be published
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/plutus-apps.git
+  tag: v1.0.0 
+  subdir:
+    cardano-streaming
+    doc
+    freer-extras
+    marconi
+    marconi-mamba
+    playground-common
+    pab-blockfrost
+    plutus-chain-index
+    plutus-chain-index-core
+    plutus-contract
+    plutus-contract-certification
+    plutus-example
+    plutus-ledger
+    plutus-ledger-constraints
+    plutus-pab
+    plutus-pab-executables
+    plutus-script-utils
+    plutus-tx-constraints
+    plutus-use-cases
+    rewindable-index
+
+-- Direct dependency.
+-- Compared to others, cardano-wallet doesn&#39;t bump dependencies very often.
+-- Making it a good place to start when bumping dependencies.
+-- As, for example, bumping the node first highly risks breaking API with the wallet.
+-- Unless early bug fixes are required, this is fine as the wallet tracks stable releases of the node.
+-- And it is indeed nice for plutus-apps to track stable releases of the node too.
+--
+-- The current version is dated 2022/08/10
+source-repository-package
+    type: git
+    location: https://github.com/input-output-hk/cardano-wallet
+    tag: 18a931648550246695c790578d4a55ee2f10463e
+    subdir:
+      lib/cli
+      lib/core
+      lib/core-integration
+      lib/dbvar
+      lib/launcher
+      lib/numeric
+      lib/shelley
+      lib/strict-non-empty-containers
+      lib/test-utils
+      lib/text-class
+
+-- Should follow cardano-wallet.
+source-repository-package
+    type: git
+    location: https://github.com/input-output-hk/cardano-addresses
+    tag: b7273a5d3c21f1a003595ebf1e1f79c28cd72513
+    subdir:
+      -- cardano-addresses-cli
+      command-line
+      -- cardano-addresses
+      core
+
+-- This is needed because we rely on an unreleased feature
+-- https://github.com/input-output-hk/cardano-ledger/pull/3111
+source-repository-package
+    type: git
+    location: https://github.com/input-output-hk/cardano-ledger
+    tag: da3e9ae10cf9ef0b805a046c84745f06643583c2
+    subdir:
+      eras/alonzo/impl
+      eras/alonzo/test-suite
+      eras/babbage/impl
+      eras/babbage/test-suite
+      eras/byron/chain/executable-spec
+      eras/byron/crypto
+      eras/byron/crypto/test
+      eras/byron/ledger/executable-spec
+      eras/byron/ledger/impl
+      eras/byron/ledger/impl/test
+      eras/shelley/impl
+      eras/shelley/test-suite
+      eras/shelley-ma/impl
+      eras/shelley-ma/test-suite
+      libs/cardano-ledger-core
+      libs/cardano-ledger-pretty
+      libs/cardano-protocol-tpraos
+      libs/cardano-data
+      libs/vector-map
+      libs/set-algebra
+      libs/small-steps
+      libs/small-steps-test
+      libs/non-integral
+</code></pre><p>This file generally instructs Cabal to include the listed packages as dependencies when it builds you project.</p>
+<p>We are almost done. Now, do <code>cabal update</code> to fetch these dependencies into the project. Finally, do <code>cabal build</code>. This should build your project although there is no code that uses the packages for now.</p>
+<p>When you get a successful build, you are ready to start writting Plutus code for your smart contracts. Here is a minimal Plutus contract to test if everything is set up correctly. Create a file called <code>TestPlutus.hs</code> in the <code>src</code> directory of your project and paste in the contents below:</p>
+<pre tabindex="0"><code>{-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeApplications #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE ImportQualifiedPost #-}
+
+
+module TestContract (validator, wrapped, serialized, hash, HelloDatum (..), HelloRedeemer (..)) where
+
+import Cardano.Api.Shelley (PlutusScript (..))
+import Codec.Serialise (serialise)
+import qualified Data.ByteString.Lazy as BSL
+import qualified Data.ByteString.Short as BSS
+import Plutus.V2.Ledger.Api qualified as PlutusV2
+import           Ledger.Typed.Scripts                 as Scripts
+import PlutusTx
+import PlutusTx.Prelude
+import Cardano.Api
+
+newtype HelloDatum = HelloDatum Integer
+PlutusTx.unstableMakeIsData &#39;&#39;HelloDatum
+newtype HelloRedeemer = HelloRedeemer Integer
+PlutusTx.unstableMakeIsData &#39;&#39;HelloRedeemer
+
+-- This validator always validates true
+{-# INLINABLE run #-}
+run :: HelloDatum -&gt; HelloRedeemer -&gt; PlutusV2.ScriptContext -&gt; Bool
+run _ _ _ = True
+
+-- Entry
+wrapped :: BuiltinData -&gt; BuiltinData -&gt; BuiltinData -&gt; ()
+wrapped = Scripts.mkUntypedValidator run 
+
+validator :: PlutusV2.Validator
+validator = PlutusV2.mkValidatorScript $$(PlutusTx.compile [|| wrapped ||])
+
+serialized :: PlutusScript PlutusScriptV2
+serialized = PlutusScriptSerialised . BSS.toShort . BSL.toStrict . serialise $ validator
+
+hash :: Scripts.ValidatorHash
+hash = validatorHash validator
+</code></pre><p>Finally, update the .cabal file in the project to add this file under the <code>exposed-modules</code> section:</p>
+<pre tabindex="0"><code>library
+    import:           warnings
+    exposed-modules:  MyLib
+                    , TestContract
+</code></pre><p>Then update the <code>build-depends</code> section to add all the packages used in <code>TestContract.hs</code></p>
+<pre tabindex="0"><code>    build-depends: base ^&gt;=4.14.3.0
+                , bytestring
+                , cardano-api
+                , filepath
+                , plutus-core
+                , plutus-ledger
+                , plutus-ledger-api
+                , plutus-tx
+                , plutus-tx-plugin
+                , serialise
+                , aeson
+</code></pre><p>Do <code>cabal build</code> and if it compiles, you have successfully setup the environment to get started with Plutus.</p>
+<p>You can get the full test project repo <a href="https://github.com/tigoni/pbt">here</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://chainstate.co.ke">ChainState</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
