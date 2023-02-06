@@ -30,6 +30,16 @@ theme = 'smigle'
   url = '/tags/'
   weight = 4 
 
+[[params.social]]
+    name = 'Twitter'
+    url = 'https://twitter.com/Tigoni'
+
+[[params.social]]
+    name = 'GitHub'
+    url = 'https://github/tigoni'
+
+
+
 [deployment]
 # By default, files are uploaded in an arbitrary order.
 # Files that match the regular expressions in the "Order" list
