@@ -2,11 +2,10 @@
 
 title: "Setting Up for Plutus Development from Scratch"
 date: 2023-02-03 12:45:00 -0000
-draft: false
 
 ---
 
-## Introduction
+### Introduction
 Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
 
 At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.
@@ -15,14 +14,14 @@ The aim of this guide is to show you how to setup the entire environment from sc
 To get started developing Plutus smart contracts, you need to setup your environment first and the most important thing to understand is that Plutus development
 is based on Haskell and therefore the platform itself is made available as a set of Haskell libraries. 
 
-#### Haskell Compiler, Nix and Cabal
+### Haskell Compiler, Nix and Cabal
 The tools we want to setup first are Nix, GHC and Cabal.
 Nix is a tool which allows us to build and manage software packages in a reproducible way in diffrent environments. It also comes with a programming language to use for building packages. I tend to think of it like Docker but much better and reproducability. We need to set it up so that its much easier managing versions of the Plutus packages. You can find instructions on how to set it up [here](https://nixos.org/download.html). 
 
 Next, we need to install GHC, a Haskell compiler and Cabal which is a tool used for managing Haskell libraries/packages. Think of it loosely like npm or Maven for Java development. According to IOG, the currently recommended GHC version is 8.10.7 and Cabal should be at least 3.8. While you could install these tools individually, a better way is to use GHCUp which will allow you to set up both from one place. Also note you could use stack which is a new Haskell build tool intended to replace Cabal. [Installation instructions for GHCUp](https://www.haskell.org/ghcup/install/). Once you have installed it you can run the command `ghcup tui` on your terminal to get a simple interface that will enable you install the right versions of GHC and Cabal 
 
 
-#### The Plutus Application Framework
+### The Plutus Application Framework
 This provides the basic set of libraries needed for Plutus development. It is a set of libraries your project will be complied and built on and is available on the IOHK repository as `plutus-apps`. The best way to set this up is using the nix method explained as earlier as this allows you to switch to different versions of the platform libraries easily. Before you proceed make sure Nix is installed on your machine.
 
 In general to set up plutus-apps, you will:
@@ -30,7 +29,7 @@ In general to set up plutus-apps, you will:
 * From the local repo, check-out a recent tagged release. At the time of writting this is release v1.1.0.
 * While still in that directory, use the command `nix-shell` to enter into the nix-environment. This command will start fetching and building all the required Plutus packages. Note that for the first time, this may take quite some time to build everything up. Just make sure you set up the IOHK binary cache to avoid compiling a huge number of the packages and tools. 
 
-#### The Plutus Project
+### The Plutus Project
 When the `nix-shell` command completes building the Plutus packages you should get a nix shell where all those packages are available as dependencies for your Plutus project. Keep this shell open, we shall come back to it in a few.
 
 Now we need to create an empty haskell project in a local directory. This will be the project that will house all your smart contracts. To create the project, do `cabal init` from the terminal. This will prompt for some preferences and you can use the defaults for all the questions. 

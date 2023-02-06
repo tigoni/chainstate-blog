@@ -1,14 +1,9 @@
 ---
-layout: single 
+
 title: "Smart Contracts and Plutus"
-category: tes
 date: 2022-01-30 11:34:00 -0000
 
 ---
-## {{page.title}}
-
-{{page.date | date: "%Y-%m-%d"}}
-
 
 ### Smart Contracts
 The term smart contract was first theorised in the late 1990's by a crytography researcher named Nick Szabo. In an article, he describe smart contracts as an electronic transaction protocol that can execute the terms of a contract with the goal of satisfying common contractual conditions, minimizing malicious or accidental exceptions and the need for trusted third parties and fulfil the economic goals of lowering fraud loss, arbitrations and enforcement costs and other transaction cots. 

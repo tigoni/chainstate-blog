@@ -1,8 +1,7 @@
 ---
-layout: single 
+
 title: "Types and TypeClasses in Haskell"
 date: 2022-02-12 09:45:00 -0000
-category: cates
 
 ---
 ## Types
