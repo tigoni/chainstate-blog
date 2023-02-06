@@ -248,5 +248,78 @@ We are almost done. Now, do `cabal update` to fetch these dependencies into the 
 
 When you get a successful build, you are ready to start writting Plutus code for your smart contracts. Here is a minimal Plutus contract to test if everything is set up correctly. Create a file called `TestPlutus.hs` in the `src` directory of your project and paste in the contents below:
 ```
+{-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeApplications #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE ImportQualifiedPost #-}
+
+
+module TestContract (validator, wrapped, serialized, hash, HelloDatum (..), HelloRedeemer (..)) where
+
+import Cardano.Api.Shelley (PlutusScript (..))
+import Codec.Serialise (serialise)
+import qualified Data.ByteString.Lazy as BSL
+import qualified Data.ByteString.Short as BSS
+import Plutus.V2.Ledger.Api qualified as PlutusV2
+import           Ledger.Typed.Scripts                 as Scripts
+import PlutusTx
+import PlutusTx.Prelude
+import Cardano.Api
+
+newtype HelloDatum = HelloDatum Integer
+PlutusTx.unstableMakeIsData ''HelloDatum
+newtype HelloRedeemer = HelloRedeemer Integer
+PlutusTx.unstableMakeIsData ''HelloRedeemer
+
+-- This validator always validates true
+{-# INLINABLE run #-}
+run :: HelloDatum -> HelloRedeemer -> PlutusV2.ScriptContext -> Bool
+run _ _ _ = True
+
+-- Entry
+wrapped :: BuiltinData -> BuiltinData -> BuiltinData -> ()
+wrapped = Scripts.mkUntypedValidator run 
+
+validator :: PlutusV2.Validator
+validator = PlutusV2.mkValidatorScript $$(PlutusTx.compile [|| wrapped ||])
+
+serialized :: PlutusScript PlutusScriptV2
+serialized = PlutusScriptSerialised . BSS.toShort . BSL.toStrict . serialise $ validator
+
+hash :: Scripts.ValidatorHash
+hash = validatorHash validator
 ```
-Finally, update the .cabal file in the project to add this file under the `exposed-modules` section. Do `cabal build` and if it compiles, you have successfully setup the environment to get started with Plutus. 
+Finally, update the .cabal file in the project to add this file under the `exposed-modules` section:
+```
+library
+    import:           warnings
+    exposed-modules:  MyLib
+                    , TestContract
+```
+Then update the `build-depends` section to add all the packages used in `TestContract.hs`
+```
+    build-depends: base ^>=4.14.3.0
+                , bytestring
+                , cardano-api
+                , filepath
+                , plutus-core
+                , plutus-ledger
+                , plutus-ledger-api
+                , plutus-tx
+                , plutus-tx-plugin
+                , serialise
+                , aeson
+```
+
+Do `cabal build` and if it compiles, you have successfully setup the environment to get started with Plutus. 
+
+You can get the full test project repo [here](https://github.com/tigoni/pbt)
