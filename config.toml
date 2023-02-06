@@ -1,7 +1,34 @@
 baseURL = 'https://chainstate.co.ke'
 languageCode = 'en-us'
 title = 'ChainState'
-theme = 'PaperMod'
+theme = 'smigle'
+
+[menu]
+[[menu.main]]
+  identifier = 'home'
+  name = 'Home'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/'
+  weight = 1
+[[menu.main]]
+  identifier = 'posts'
+  name = 'Posts'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/posts/'
+  weight = 2
+[[menu.main]]
+  identifier = 'about'
+  name = 'About'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/about/'
+  weight = 3 
+[[menu.main]]
+  identifier = 'tags'
+  name = 'Tags'
+  post = "<span class='alert'>New!</span>"
+  pre = "<i class='fa fa-road'></i>"
+  url = '/tags/'
+  weight = 4 
 
 [deployment]
 # By default, files are uploaded in an arbitrary order.
