@@ -13,7 +13,7 @@
       <pubDate>Fri, 03 Feb 2023 12:45:00 +0000</pubDate>
       
       <guid>https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/</guid>
-      <description>##Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
+      <description>Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
 At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.</description>
     </item>
     
@@ -42,8 +42,7 @@ Common types are Int: Used for whole numbers and is bounded to a min and max val
       <pubDate>Sun, 30 Jan 2022 11:34:00 +0000</pubDate>
       
       <guid>https://chainstate.co.ke/posts/2022-01-30-smart-contracts-and-plutus/</guid>
-      <description>{{page.title}} {{page.date | date: &amp;ldquo;%Y-%m-%d&amp;rdquo;}}
-Smart Contracts The term smart contract was first theorised in the late 1990&amp;rsquo;s by a crytography researcher named Nick Szabo. In an article, he describe smart contracts as an electronic transaction protocol that can execute the terms of a contract with the goal of satisfying common contractual conditions, minimizing malicious or accidental exceptions and the need for trusted third parties and fulfil the economic goals of lowering fraud loss, arbitrations and enforcement costs and other transaction cots.</description>
+      <description>Smart Contracts The term smart contract was first theorised in the late 1990&amp;rsquo;s by a crytography researcher named Nick Szabo. In an article, he describe smart contracts as an electronic transaction protocol that can execute the terms of a contract with the goal of satisfying common contractual conditions, minimizing malicious or accidental exceptions and the need for trusted third parties and fulfil the economic goals of lowering fraud loss, arbitrations and enforcement costs and other transaction cots.</description>
     </item>
     
     <item>
@@ -52,7 +51,7 @@ Smart Contracts The term smart contract was first theorised in the late 1990&amp
       <pubDate>Sat, 22 Jan 2022 16:18:00 +0000</pubDate>
       
       <guid>https://chainstate.co.ke/posts/2022-01-22-scalability-in-cardano/</guid>
-      <description>{{page.title}}  What is it and how important is it? Scalability as a goal from the onset in Cardano How is it designed to achieve this, approaches What current strategies are already in place The future with more scaling   Scalability from the onset In all blockchain systems, scalability is a core design issue that is aimed at addressing the problem of how a blockchain can be able to process more transactions even as the network grows.</description>
+      <description>Scalability from the onset In all blockchain systems, scalability is a core design issue that is aimed at addressing the problem of how a blockchain can be able to process more transactions even as the network grows. The common description of scalability in a blockchain is usually the mention of transactions per secondi or transaction throughput. The ability of a blockchain to scale it transaction throughput with increased use cases from adoption is what would define it as a scalable blockchain.</description>
     </item>
     
     <item>
@@ -61,7 +60,7 @@ Smart Contracts The term smart contract was first theorised in the late 1990&amp
       <pubDate>Sat, 15 Jan 2022 22:48:00 +0000</pubDate>
       
       <guid>https://chainstate.co.ke/posts/2022-01-15-eutxo-transactions/</guid>
-      <description>{{page.title}} Value Transfer The fundamental function in a blockchain network is to transfer value between parties through transactions. Transactions are propagated through the network, validated and added to the blockchain. Every transaction on the blockchain is open to the network and can be used as proof of value transfer having taken place.
+      <description>Value Transfer The fundamental function in a blockchain network is to transfer value between parties through transactions. Transactions are propagated through the network, validated and added to the blockchain. Every transaction on the blockchain is open to the network and can be used as proof of value transfer having taken place.
 UTXO and Account Balance Blockchains At present, there are two main accounting models of how transactions take place in blockchains.</description>
     </item>
     
