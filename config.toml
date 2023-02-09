@@ -38,6 +38,10 @@ theme = 'smigle'
     name = 'GitHub'
     url = 'https://github/tigoni'
 
+[params]
+subtitle = "Thinking Cardano"
+brandIconFile = "/images/testlogo.png"
+
 
 
 [deployment]
