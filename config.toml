@@ -41,6 +41,7 @@ theme = 'smigle'
 [params]
 subtitle = "Thinking Cardano"
 brandIconFile = "/images/testlogo.png"
+author = 'TG'
 
 
 
