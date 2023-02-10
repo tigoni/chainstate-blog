@@ -32,15 +32,24 @@ theme = 'smigle'
 
 [[params.social]]
     name = 'Twitter'
-    url = 'https://twitter.com/Tigoni'
+    url = 'https://twitter.com/Tigonian'
 
 [[params.social]]
     name = 'GitHub'
-    url = 'https://github/tigoni'
+    url = 'https://github.com/tigoni'
+
+[[params.social]]
+    name = 'Substack'
+    url = 'https://tigonigreen.substack.com/'
+
+[[params.social]]
+    name = 'LinkedIn'
+    url = 'linkedin.com/in/semanakm'
+
 
 [params]
 subtitle = "Thinking Cardano"
-brandIconFile = "/images/testlogo.png"
+brandIconFile = "/images/cs-logo.png"
 author = 'TG'
 
 

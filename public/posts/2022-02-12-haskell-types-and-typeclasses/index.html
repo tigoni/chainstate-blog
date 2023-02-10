@@ -1,183 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Types and TypeClasses in Haskell | ChainState</title>
-<meta name="keywords" content="">
-<meta name="description" content="Types Haskell uses a static type system and this means every expression&rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.
-Common types are Int: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647.">
-<meta name="author" content="">
-<link rel="canonical" href="https://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://chainstate.co.ke/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://chainstate.co.ke/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://chainstate.co.ke/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://chainstate.co.ke/apple-touch-icon.png">
-<link rel="mask-icon" href="https://chainstate.co.ke/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="Types and TypeClasses in Haskell" />
-<meta property="og:description" content="Types Haskell uses a static type system and this means every expression&rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.
-Common types are Int: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-12T09:45:00+00:00" />
-<meta property="article:modified_time" content="2022-02-12T09:45:00+00:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Types and TypeClasses in Haskell"/>
-<meta name="twitter:description" content="Types Haskell uses a static type system and this means every expression&rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.
-Common types are Int: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Posts",
-      "item": "https://chainstate.co.ke/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "Types and TypeClasses in Haskell",
-      "item": "https://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Types and TypeClasses in Haskell",
-  "name": "Types and TypeClasses in Haskell",
-  "description": "Types Haskell uses a static type system and this means every expression\u0026rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.\nCommon types are Int: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647.",
-  "keywords": [
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
     
-  ],
-  "articleBody": "Types Haskell uses a static type system and this means every expression’s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.\nCommon types are Int: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647. Integer: For whole numbers but unbounded. Float: Floating point numbers with single precision. Double: Floating point numbers with double precision. Bool: A boolean type which can only have True or False values Char: A character representation. (): An empty turple which can only have the a single value. ()\nBy convention, all types are written starting with an Uppercase letter. Functions in Haskell are also expressions and have types which can be declared as function signtures.\nsumOfInts :: Int - Int - Int\nThe function has a type of Int - Int - Int which means it takes two integers as parameters and returns an integer.\nTypes Variables A type variable represents a generic type which can then be replaced with a concrete type when being used. It is used in writting general functions which can be applied to specific types in use. Functions that use type variables are called polymorphic functions. By convention, type variables are represented by lowercase single letters.\nsumTwoThings :: a - a - a sumTwoThings a a = a + a  Typeclasses A typeclass is like an interface in imperative OOP languages. It defines behavior that will beexpected to be present in any type that becomes a member of it. For instance, Eq is a typeclass that provides an interface for testing equality in values that are members of it. If a type is member, it means that variables of that type can be compared for equality using functions present in the Eq typeclass.\ncheckIfPresent :: (Eq a) = a - [a] - Bool  In the above example, the function checks if a value a is present in a list [a] and returns true or false. The values to be used for a and [a] are constrained to be members of the Eq typeclass. This will allow the function to use the == function when checking for presence. The (Eq a) = a  part of the function declaration specifies this contraint.\nSome of the basic typeclasses are: Eq: Use for type that support equality Ord: Use for types that support ordering Show: Use for types that can be represented as strings. Read: Use for types that can be read as strings and evaluted to the type. Enum: Use for types that support sequentially ordered types Bounded: Use for types that have a lower and an upper bound. Num: Use for types that have the property to act like numbers. Integral: use for real numbers and Integral numbers.\n",
-  "wordCount" : "491",
-  "inLanguage": "en",
-  "datePublished": "2022-02-12T09:45:00Z",
-  "dateModified": "2022-02-12T09:45:00Z",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "ChainState",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://chainstate.co.ke/favicon.ico"
-    }
-  }
-}
-</script>
+      <title>Types and TypeClasses in Haskell | ChainState</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 </head>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://chainstate.co.ke" accesskey="h" title="ChainState (Alt + H)">ChainState</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="https://chainstate.co.ke">
+      <img
+        class="icon"
+        src="/images/cs-logo.png"
+      />
+    </a>
+    <div class="text">
+      <a href="https://chainstate.co.ke"><h1>ChainState</h1></a>
+      <h3>Thinking Cardano</h3>
+    </div>
+  </div>
+  <nav>
     
-    <h1 class="post-title">
-      Types and TypeClasses in Haskell
-    </h1>
-    <div class="post-meta"><span title='2022-02-12 09:45:00 +0000 +0000'>February 12, 2022</span>
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
 
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>Types and TypeClasses in Haskell</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2022-02-12 09:45:00</time>
+    
+    
+  </strong>
+  <span> • 491 words</span>
+  <span> • 3 minute read</span>
+  
+  
 </div>
-  </header> 
-  <div class="post-content"><h2 id="types">Types<a hidden class="anchor" aria-hidden="true" href="#types">#</a></h2>
+
+      <div><h2 id="types">Types</h2>
 <p>Haskell uses a static type system and this means every expression&rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.</p>
 <p>Common types are
 <code>Int</code>: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647.
@@ -191,13 +91,13 @@ Common types are Int: Used for whole numbers and is bounded to a min and max val
 Functions in Haskell are also expressions and have types which can be declared as function signtures.</p>
 <p><code>sumOfInts :: Int -&gt; Int -&gt; Int</code></p>
 <p>The function has a type of <code>Int -&gt; Int -&gt; Int</code> which means it takes two integers as parameters and returns an integer.</p>
-<h3 id="types-variables">Types Variables<a hidden class="anchor" aria-hidden="true" href="#types-variables">#</a></h3>
+<h3 id="types-variables">Types Variables</h3>
 <p>A type variable represents a generic type which can then be replaced with a concrete type when being used. It is used in writting general functions which can be applied to specific types in use.
 Functions that use type variables are called polymorphic functions. By convention, type variables are represented by lowercase single letters.</p>
 <pre><code>sumTwoThings :: a -&gt; a -&gt; a
 sumTwoThings a a = a + a 
 </code></pre>
-<h3 id="typeclasses">Typeclasses<a hidden class="anchor" aria-hidden="true" href="#typeclasses">#</a></h3>
+<h3 id="typeclasses">Typeclasses</h3>
 <p>A typeclass is like an interface in imperative OOP languages. It defines behavior that will beexpected to be present in any type that becomes a member of it.
 For instance, <code>Eq</code> is a typeclass that provides an interface for testing equality in values that are members of it. If a type is member, it means that variables of that type can be compared for equality using functions present in the <code>Eq</code> typeclass.</p>
 <pre><code>checkIfPresent :: (Eq a) =&gt; a -&gt; [a] -&gt; Bool
@@ -212,85 +112,35 @@ For instance, <code>Eq</code> is a typeclass that provides an interface for test
 <code>Bounded</code>: Use for types that have a lower and an upper bound.
 <code>Num</code>:  Use for types that have the property to act like numbers.
 <code>Integral</code>: use for real numbers and Integral numbers.</p>
+</div>
+    </article>
+  </main>
 
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2023 <a href="https://chainstate.co.ke">ChainState</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://twitter.com/Tigonian">Twitter</a>
+      
+         | 
+        <a href="https://github.com/tigoni">GitHub</a>
+      
+         | 
+        <a href="https://tigonigreen.substack.com/">Substack</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2023
+    <a href="https://chainstate.co.ke"><strong>TG</strong></a>.
+  </p>
+  
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
 
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
+  </body>
 </html>
