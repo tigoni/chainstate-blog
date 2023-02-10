@@ -44,7 +44,7 @@ theme = 'smigle'
 
 [[params.social]]
     name = 'LinkedIn'
-    url = 'linkedin.com/in/semanakm'
+    url = 'https://linkedin.com/in/semanakm'
 
 
 [params]
