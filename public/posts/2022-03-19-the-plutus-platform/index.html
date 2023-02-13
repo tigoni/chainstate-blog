@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>The Plutus Platform | ChainState</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="https://chainstate.co.ke">
+      <img
+        class="icon"
+        src="/images/cs-logo.png"
+      />
+    </a>
+    <div class="text">
+      <a href="https://chainstate.co.ke"><h1>ChainState</h1></a>
+      <h3>Thinking Cardano</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>The Plutus Platform</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2022-03-19 10:39:00</time>
+    
+    
+  </strong>
+  <span> • 495 words</span>
+  <span> • 3 minute read</span>
+  
+  
+</div>
+
+      <div><h3 id="program-ability-in-blockchain">Program-ability in blockchain</h3>
+<p>When it comes to how widely blockchain technology can be applied to a range of use-cases, it somehow depends on the model a blockchain uses for defining how transactions are settled.
+Bitcoin uses a UTXO model on its ledger. This means that transactions are represented as a series of inputs and outputs that live on the blockchain. The inputs are locked to a pubkey and only the owner of the pubkey can sign the transaction with a corresponding private key in order to unlock those outputs (spending).
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+Cardano uses the eUTXO model which extends UTXO by making it possible for the pubkeys that lock outputs to be replaced with small scripts called validators. The validator is deployed as actual script address and lives on the blockchain as an output.
+An extra piece of data can be added to a validator and provides the convinience of have extra data in an output without having to modify the validator. This data is referred to as <strong>Datum</strong>.
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+For a transaction to spend the value locked on a script address, ie the validator, it needs to provide a few pieces of information:</p>
+<ul>
+<li><strong>Redeemer:</strong> This is the signature required to unlock the output.</li>
+<li><strong>Context:</strong> This data that is related to that transaction and it could be anything from the referenced inputs, the outputs such that you can verify that the outputs referenced by the validator actually exist.</li>
+</ul>
+<h3 id="the-plutus-platform">The Plutus Platform</h3>
+<p>The Plutus Platform is a collection of tools such as environment runtime, SDKs and libraries that work together to enable the development Cardano smart contracts. The platform offers a robust way of applications interacting with the Cardano blockchain by abstracting possible areas of complexity from the application developer and applying constraints on how contracts are evaluated. This model attempts to provide assurance that eliminate the risk of loss during transactions.</p>
+<p>It is designed as a set of components that work together:</p>
+<ul>
+<li>
+<p><strong>Plutus Application Framework:</strong> This is a framework designed to  be used for developing client-side Plutus applications. It prodides an SDK and libraries that interface the client application with on-chain smart contract code, wallet front-ends and back-ends, nodes,cli tools etc.</p>
+<ul>
+<li><strong>Plutus Application Backend:</strong> The client side runtime for plutus apps. It acts as an intermediary between client side code and the contract code running on the blockchain.</li>
+<li><strong>Plutus Haskell SDK:</strong> It determines how a smart contract is written and how it interacts with the blockchain in a secure, deterministic manner.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plutus Foundation:</strong> This provide the environment on which on-chain smart contract code can be written.</p>
+<ul>
+<li><strong>Plutus Core</strong>: This is small functional language that smart contract code written compiles into in order to run on the Cardano blockchain. The code could be written in a different language but currently the only supported language is Haskell.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plutus Playground:</strong> Privides a web interface that can be used to write and test basic Plutus applications. It enables visualization on the how a contract is evaluated and setup of different test scenarios.</p>
+</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</div>
+    </article>
+  </main>
+
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://twitter.com/Tigonian">Twitter</a>
+      
+         | 
+        <a href="https://github.com/tigoni">GitHub</a>
+      
+         | 
+        <a href="https://tigonigreen.substack.com/">Substack</a>
+      
+         | 
+        <a href="https://linkedin.com/in/semanakm">LinkedIn</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2023
+    <a href="https://chainstate.co.ke"><strong>TG</strong></a>.
+  </p>
+  
+</footer>
+
+  </body>
+</html>

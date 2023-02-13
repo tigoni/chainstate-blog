@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>eUTXO in Cardano | ChainState</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="https://chainstate.co.ke">
+      <img
+        class="icon"
+        src="/images/cs-logo.png"
+      />
+    </a>
+    <div class="text">
+      <a href="https://chainstate.co.ke"><h1>ChainState</h1></a>
+      <h3>Thinking Cardano</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>eUTXO in Cardano</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2022-01-15 22:48:00</time>
+    
+    
+  </strong>
+  <span> • 520 words</span>
+  <span> • 3 minute read</span>
+  
+  
+</div>
+
+      <div><h3 id="value-transfer">Value Transfer</h3>
+<p>The fundamental function in a blockchain network is to transfer value between parties through transactions. Transactions are propagated through the network, validated and added to the blockchain. Every transaction on the blockchain is open to the network and can be used as proof of value transfer having taken place.</p>
+<h3 id="utxo-and-account-balance-blockchains">UTXO and Account Balance Blockchains</h3>
+<p>At present, there are two main accounting models of how transactions take place in blockchains. There is the UTXO model and the account based model. To better understand how transactions work in blockchain in this article, we use an example of Alice buying a book from Bob.
+Bitcoin uses the UTXO model which resembles cash transactions. Using the book example where Alice buys from Bob, if Alice had one bitcoin and decides to pay for the book using bitcoin, the wallet she uses selects any unspent bitcoin (inputs) and creates a transaction of the required value (outputs) which is tied to Bob&rsquo;s address. The output in broadcast over the network and added to the blockchain. It is these outputs that are locked to Bob&rsquo;s address that are referred to Unspent Transaction Outputs (UTXO). Similarly, if Bob were to spend that bitcoin,his wallet would consume the UTXO and create new UTXO locked to the receiving address. In UTXOmodel, the smallest unit that can be transacted is a single UTXO and if it happens to have a larger value than what is to be spent, then a change UTXO is created and sent back to the spending wallet. In this way UTXO resembeles transacting in cash.</p>
+<p>The other accounting model used for transactions is called the account balance model which is similar to how the banking system works. In this model, Alice paying for the book means that her account balance in the global ledger is updated to deduct the amount while that of Bob who is receiving the payment is credited with the amount. With an account balance block chain, assets are represented as account balances within the user&rsquo;s account and it is this balance which is updated during transactions. Ethereum is an example of a blockchain that uses this model.</p>
+<h3 id="eutxo-in-cardano">eUTXO in Cardano</h3>
+<p>Cardano uses both UTXO and account balance models and therefore the term extended UTXO. With bitcoin the use of UTXO significantly reduces programmability and therefore use-case application is largely constrained to payments. The account balance model as used in Ethereum allows for more programmability but in the process, the semantics of the code are more complex therefore introducing the possibility of errors in the smart contract code. Cardano extends UTXO by allowing for more data in the outputs other than just value. It also adds more logic to the output which determines the condtions under which the transaction can be unlocked. This logic is in the form of scripts. This scripts look at the data and determine if the output can be spent or not. By combining the input and output approach in UTXO and scripts from the account-balance models, Cardano is able to serve more diverse use cases that require programmability while also providing the robustness of the UTXO model.</p>
+</div>
+    </article>
+  </main>
+
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://twitter.com/Tigonian">Twitter</a>
+      
+         | 
+        <a href="https://github.com/tigoni">GitHub</a>
+      
+         | 
+        <a href="https://tigonigreen.substack.com/">Substack</a>
+      
+         | 
+        <a href="https://linkedin.com/in/semanakm">LinkedIn</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2023
+    <a href="https://chainstate.co.ke"><strong>TG</strong></a>.
+  </p>
+  
+</footer>
+
+  </body>
+</html>

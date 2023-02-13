@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>Types and TypeClasses in Haskell | ChainState</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="https://chainstate.co.ke">
+      <img
+        class="icon"
+        src="/images/cs-logo.png"
+      />
+    </a>
+    <div class="text">
+      <a href="https://chainstate.co.ke"><h1>ChainState</h1></a>
+      <h3>Thinking Cardano</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>Types and TypeClasses in Haskell</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2022-02-12 09:45:00</time>
+    
+    
+  </strong>
+  <span> • 491 words</span>
+  <span> • 3 minute read</span>
+  
+  
+</div>
+
+      <div><h2 id="types">Types</h2>
+<p>Haskell uses a static type system and this means every expression&rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.</p>
+<p>Common types are
+<code>Int</code>: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647.
+<code>Integer</code>: For whole numbers but unbounded.
+<code>Float</code>: Floating point numbers with single precision.
+<code>Double</code>: Floating point numbers with double precision.
+<code>Bool</code>: A boolean type which can only have True or False values
+<code>Char</code>: A character representation.
+<code>()</code>: An empty turple which can only have the a single value. <code>()</code></p>
+<p>By convention, all types are written starting with an Uppercase letter.
+Functions in Haskell are also expressions and have types which can be declared as function signtures.</p>
+<p><code>sumOfInts :: Int -&gt; Int -&gt; Int</code></p>
+<p>The function has a type of <code>Int -&gt; Int -&gt; Int</code> which means it takes two integers as parameters and returns an integer.</p>
+<h3 id="types-variables">Types Variables</h3>
+<p>A type variable represents a generic type which can then be replaced with a concrete type when being used. It is used in writting general functions which can be applied to specific types in use.
+Functions that use type variables are called polymorphic functions. By convention, type variables are represented by lowercase single letters.</p>
+<pre><code>sumTwoThings :: a -&gt; a -&gt; a
+sumTwoThings a a = a + a 
+</code></pre>
+<h3 id="typeclasses">Typeclasses</h3>
+<p>A typeclass is like an interface in imperative OOP languages. It defines behavior that will beexpected to be present in any type that becomes a member of it.
+For instance, <code>Eq</code> is a typeclass that provides an interface for testing equality in values that are members of it. If a type is member, it means that variables of that type can be compared for equality using functions present in the <code>Eq</code> typeclass.</p>
+<pre><code>checkIfPresent :: (Eq a) =&gt; a -&gt; [a] -&gt; Bool
+</code></pre>
+<p>In the above example, the function checks if a value <code>a</code> is present in a list <code>[a]</code> and returns true or false. The values to be used for <code>a</code> and <code>[a]</code> are constrained to be members of the <code>Eq</code> typeclass. This will allow the function to use the <code>==</code> function when checking for presence. The <code>(Eq a) =&gt; a </code> part of the function declaration specifies this contraint.</p>
+<p>Some of the basic typeclasses are:
+<code>Eq</code>: Use for type that support equality
+<code>Ord</code>: Use for types that support ordering
+<code>Show</code>: Use for types that can be represented as strings.
+<code>Read</code>: Use for types that can be read as strings and evaluted to the type.
+<code>Enum</code>: Use for types that support sequentially ordered types
+<code>Bounded</code>: Use for types that have a lower and an upper bound.
+<code>Num</code>:  Use for types that have the property to act like numbers.
+<code>Integral</code>: use for real numbers and Integral numbers.</p>
+</div>
+    </article>
+  </main>
+
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://twitter.com/Tigonian">Twitter</a>
+      
+         | 
+        <a href="https://github.com/tigoni">GitHub</a>
+      
+         | 
+        <a href="https://tigonigreen.substack.com/">Substack</a>
+      
+         | 
+        <a href="https://linkedin.com/in/semanakm">LinkedIn</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2023
+    <a href="https://chainstate.co.ke"><strong>TG</strong></a>.
+  </p>
+  
+</footer>
+
+  </body>
+</html>

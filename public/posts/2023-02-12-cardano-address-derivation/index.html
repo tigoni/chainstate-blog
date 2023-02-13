@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content=""
+  />
+  
+    
+      <title>Cardano Address Derivation | ChainState</title>
+    
+  
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link rel="stylesheet" href="/css/font.css"/>
+  <link rel="stylesheet" href="/css/smigle.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <header>
+  <div id="brand">
+    <a class="icon-link" href="https://chainstate.co.ke">
+      <img
+        class="icon"
+        src="/images/cs-logo.png"
+      />
+    </a>
+    <div class="text">
+      <a href="https://chainstate.co.ke"><h1>ChainState</h1></a>
+      <h3>Thinking Cardano</h3>
+    </div>
+  </div>
+  <nav>
+    
+      
+        
+        <a href="/"><b>Home</b></a>
+      
+         | 
+        <a href="/posts/"><b>Posts</b></a>
+      
+         | 
+        <a href="/about/"><b>About</b></a>
+      
+         | 
+        <a href="/tags/"><b>Tags</b></a>
+      
+    
+  </nav>
+  <hr />
+</header>
+
+    <div id="content">
+      
+  <main>
+    <article>
+      <h1>Cardano Address Derivation</h1>
+      <div class="post-meta">
+  <strong>
+    <span>Posted on</span>
+    <time>2023-02-12 23:39:00</time>
+    
+    
+  </strong>
+  <span> • 510 words</span>
+  <span> • 3 minute read</span>
+  
+  
+</div>
+
+      <div><p>One of the essential components of blockchains is the use of addresses. With addresses, we are able to transfer value from one party to another. This value could be in many forms including cryptocurrency, NFTs, or any specific metadata. This is a brief guide on how addresses are generally created on the Cardano blockchain but it&rsquo;s worth noting that the process of address creation is largely similar across all blockchains.</p>
+<p>When you create a wallet, the typical process starts with a random number being generated and from it, a seed phrase of mnemonic is generated. The randomness of the number is extremely huge considering that it is a number whose upper bound is 2<!-- raw HTML omitted -->256<!-- raw HTML omitted --> bits. To provide some context to how large it is, we need to understand that the number in decimal is 10<!-- raw HTML omitted -->77<!-- raw HTML omitted -->. The estimated total number of atoms in the known universe is 10<!-- raw HTML omitted -->80<!-- raw HTML omitted -->.</p>
+<p>With the number generated, a checksum value is calculated to ensure correctness. The number is then combined with the checksum and the binary representation is broken down into 11-bit segments and converted to decimal format. The decimal numbers are used to look up the corresponding word in a list known as the <a href="%5Bhttps://github.com/bitcoin/bips/blob/master/bip-0039/english.txt%5D(https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt)">BIP-39 word list</a>.</p>
+<p>The next step is getting the root key from the 12, 15, or 24-word seed phrase. The hex representation of the random number from the previous step (with the checksum stripped off), is mixed with a user-specified password. This password is optional and by default, some wallets use an empty string.</p>
+<p>The password and the random hex string are used as inputs to a hashing function that uses an algorithm called <code>PBKDF2WithHMacCSHA512</code> (PB Key Derivation Format 2 With HMac SHA-512). The function runs the inputs through a specified number of iterations and outputs 96 bytes of data. This is the root key that will be used to derive child keys.</p>
+<p>Next, a derivation function is run on the root key to get all child keys. Key derivation provides for keys to be set to the required format for use and for this purpose, paths are used. Cardano uses the derivation paths to describe the structure of the keys, such that they can be accurately recreated in the future.</p>
+<p>The format of the paths used is:</p>
+<p><code>root/   H(PURPOSE)/   H/(COIN_TYPE)   /H(ACCOUNT)   /S(CHANGE)   /S(INDEX)</code></p>
+<p>With the example below, the coin type is set to 1815 which means the key is meant to hold Ada and the account, which is typically 0, the change path specifies the internal, external, or stake key. The index of the key count goes up as more keys are generated.</p>
+<p><code>root / 1852' /1815' /0' /0 /0</code></p>
+<p>After the child private keys are derived, the public keys are created by applying a one-way function to the private key. This means that a public key can be derived from a private key but not the other way around.</p>
+<p>Finally, to get the address, the public key is hashed with the functions; <code>SHA-3</code> and <code>blake2S</code>. The resulting hash is an address that can be used to receive funds and assets.</p>
+</div>
+    </article>
+  </main>
+
+    </div>
+    <footer>
+  <hr />
+  
+    <p id="social">
+      Find me around the web:
+      <br />
+      
+        
+        <a href="https://twitter.com/Tigonian">Twitter</a>
+      
+         | 
+        <a href="https://github.com/tigoni">GitHub</a>
+      
+         | 
+        <a href="https://tigonigreen.substack.com/">Substack</a>
+      
+         | 
+        <a href="https://linkedin.com/in/semanakm">LinkedIn</a>
+      
+    </p>
+  
+  <p class="copyright">
+    Copyright © 2023
+    <a href="https://chainstate.co.ke"><strong>TG</strong></a>.
+  </p>
+  
+</footer>
+
+  </body>
+</html>

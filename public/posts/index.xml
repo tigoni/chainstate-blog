@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ChainState</title>
+    <link>https://chainstate.co.ke/posts/</link>
+    <description>Recent content in Posts on ChainState</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Feb 2023 23:39:00 +0000</lastBuildDate><atom:link href="https://chainstate.co.ke/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cardano Address Derivation</title>
+      <link>https://chainstate.co.ke/posts/2023-02-12-cardano-address-derivation/</link>
+      <pubDate>Sun, 12 Feb 2023 23:39:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2023-02-12-cardano-address-derivation/</guid>
+      <description>One of the essential components of blockchains is the use of addresses. With addresses, we are able to transfer value from one party to another. This value could be in many forms including cryptocurrency, NFTs, or any specific metadata. This is a brief guide on how addresses are generally created on the Cardano blockchain but it&amp;rsquo;s worth noting that the process of address creation is largely similar across all blockchains.</description>
+    </item>
+    
+    <item>
+      <title>Setting Up for Plutus Development from Scratch</title>
+      <link>https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/</link>
+      <pubDate>Fri, 03 Feb 2023 12:45:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2023-02-03-cardano-dev-env-setup/</guid>
+      <description>Introduction Smart contracts for the Cardano blockchain are created using the Plutus which is a platform that provides a programming language based on Haskell (Plutus) and an SDK that contains all the necessary tools to make smart contract development possible.
+At the moment, there are new ways of writting Cardano smart contracts without haaving to learn Haskell. Projects such as Aiken, Helios, and make it possible to delevelop smart contracts without using Plutus and therefore you do not need to learn Haskell.</description>
+    </item>
+    
+    <item>
+      <title>The Plutus Platform</title>
+      <link>https://chainstate.co.ke/posts/2022-03-19-the-plutus-platform/</link>
+      <pubDate>Sat, 19 Mar 2022 10:39:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2022-03-19-the-plutus-platform/</guid>
+      <description>Program-ability in blockchain When it comes to how widely blockchain technology can be applied to a range of use-cases, it somehow depends on the model a blockchain uses for defining how transactions are settled. Bitcoin uses a UTXO model on its ledger. This means that transactions are represented as a series of inputs and outputs that live on the blockchain. The inputs are locked to a pubkey and only the owner of the pubkey can sign the transaction with a corresponding private key in order to unlock those outputs (spending).</description>
+    </item>
+    
+    <item>
+      <title>Types and TypeClasses in Haskell</title>
+      <link>https://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/</link>
+      <pubDate>Sat, 12 Feb 2022 09:45:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2022-02-12-haskell-types-and-typeclasses/</guid>
+      <description>Types Haskell uses a static type system and this means every expression&amp;rsquo;s type is known at compile time. Any incompatibility with types in evaluating expressions leads to compile time errors. Haskell also has type inference so we do not need to to explicitly write the type. It can infer this from the expression.
+Common types are Int: Used for whole numbers and is bounded to a min and max value. On 32-bit machines, this bound is -2147483647 and 2147483647.</description>
+    </item>
+    
+    <item>
+      <title>Smart Contracts and Plutus</title>
+      <link>https://chainstate.co.ke/posts/2022-01-30-smart-contracts-and-plutus/</link>
+      <pubDate>Sun, 30 Jan 2022 11:34:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2022-01-30-smart-contracts-and-plutus/</guid>
+      <description>Smart Contracts The term smart contract was first theorised in the late 1990&amp;rsquo;s by a crytography researcher named Nick Szabo. In an article, he describe smart contracts as an electronic transaction protocol that can execute the terms of a contract with the goal of satisfying common contractual conditions, minimizing malicious or accidental exceptions and the need for trusted third parties and fulfil the economic goals of lowering fraud loss, arbitrations and enforcement costs and other transaction cots.</description>
+    </item>
+    
+    <item>
+      <title>Scalability In Cardano</title>
+      <link>https://chainstate.co.ke/posts/2022-01-22-scalability-in-cardano/</link>
+      <pubDate>Sat, 22 Jan 2022 16:18:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2022-01-22-scalability-in-cardano/</guid>
+      <description>Scalability from the onset In all blockchain systems, scalability is a core design issue that is aimed at addressing the problem of how a blockchain can be able to process more transactions even as the network grows. The common description of scalability in a blockchain is usually the mention of transactions per secondi or transaction throughput. The ability of a blockchain to scale it transaction throughput with increased use cases from adoption is what would define it as a scalable blockchain.</description>
+    </item>
+    
+    <item>
+      <title>eUTXO in Cardano</title>
+      <link>https://chainstate.co.ke/posts/2022-01-15-eutxo-transactions/</link>
+      <pubDate>Sat, 15 Jan 2022 22:48:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2022-01-15-eutxo-transactions/</guid>
+      <description>Value Transfer The fundamental function in a blockchain network is to transfer value between parties through transactions. Transactions are propagated through the network, validated and added to the blockchain. Every transaction on the blockchain is open to the network and can be used as proof of value transfer having taken place.
+UTXO and Account Balance Blockchains At present, there are two main accounting models of how transactions take place in blockchains.</description>
+    </item>
+    
+    <item>
+      <title>Proof Of Stake In Cardano</title>
+      <link>https://chainstate.co.ke/posts/2022-01-09-pos-and-ouroboros/</link>
+      <pubDate>Sat, 08 Jan 2022 06:45:00 +0000</pubDate>
+      
+      <guid>https://chainstate.co.ke/posts/2022-01-09-pos-and-ouroboros/</guid>
+      <description>Proof of Stake in Cardano In a typical blockchain network, the core function of nodes is to independently process transactions such that every node verifies each received transaction, aggregates a collection of the transactions into a new block and relays the new block to the rest of the network. The process of creating the new block includes making the block valid and for this to be the case, the entire network of nodes have to agree on the validity of the block.</description>
+    </item>
+    
+  </channel>
+</rss>
