@@ -4,7 +4,7 @@ title: "Cardano Address Derivation"
 date: 2023-02-12 23:39:00 -0000
 
 ---
-###From Randomness To Addresses
+
 One of the essential components of blockchains is the use of addresses. With addresses, we are able to transfer value from one party to another. This value could be in many forms including cryptocurrency, NFTs, or any specific metadata. This is a brief guide on how addresses are generally created on the Cardano blockchain but it's worth noting that the process of address creation is largely similar across all blockchains.
 
 When you create a wallet, the typical process starts with a random number being generated and from it, a seed phrase of mnemonic is generated. The randomness of the number is extremely huge considering that it is a number whose upper bound is 2256 bits. To provide some context to how large it is, we need to understand that the number in decimal is 1077. The estimated total number of atoms in the known universe is 1080. 
